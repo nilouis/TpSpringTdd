@@ -45,4 +45,7 @@ public class ItemServiceImpl implements ItemService {
 		return itemRepository.findAll();
 	}
 
+	@Transactional(readOnly = true)
+	public Item getOneItemByID(String itemId){ return itemRepository.findById(itemId); }
+
 }

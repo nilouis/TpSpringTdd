@@ -6,11 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import fr.training.samples.spring.shop.application.item.ItemService;
@@ -37,6 +33,14 @@ public class ItemResource {
 
 		final List<Item> items = itemService.getAllItems();
 		return itemMapper.mapToDtoList(items);
+
+	}
+
+	@GetMapping(value = "/items/{id}", produces = { "application/json" })
+	public ItemDto getItemUsingGet(@PathVariable final String id) {
+
+		final Item item = itemService.getOneItemByID(id);
+		return itemMapper.mapToDto(item);
 
 	}
 

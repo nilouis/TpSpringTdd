@@ -66,7 +66,7 @@ public class OrderRepositoryTest {
 		final String customerId = "123e4567-e89b-42d3-a456-556642440000";
 
 		// When
-		final List<Order> results = orderRepository.findByCustomerId(customerId);
+		final List<Order> results = orderRepository.findByCusstomerId(customerId);
 
 		// Then
 		assertThat(results).hasSize(2);

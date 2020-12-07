@@ -22,4 +22,6 @@ public interface ItemService {
 	 */
 	public List<Item> getAllItems();
 
+	public Item getOneItemByID(String id);
+
 }

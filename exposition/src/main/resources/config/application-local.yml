@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: admin
+    password: Rollin10!
 #Monitoring endpoints   
 management:
    endpoints:
@@ -14,4 +14,5 @@ management:
 logging:
   level:
     org.hibernate.SQL: DEBUG
+    org.springframework : DEBUG
     #org.hibernate.type.descriptor.sql.BasicBinder: TRACE
