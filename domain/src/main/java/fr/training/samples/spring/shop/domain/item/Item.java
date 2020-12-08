@@ -11,6 +11,13 @@ public class Item extends AbstractBaseEntity {
 
 	private Integer price;
 
+	public Item(String description,Integer price){
+		this.description=description;
+		this.price=price;
+	}
+
+	public Item(){}
+
 	/**
 	 * @return the description
 	 */
