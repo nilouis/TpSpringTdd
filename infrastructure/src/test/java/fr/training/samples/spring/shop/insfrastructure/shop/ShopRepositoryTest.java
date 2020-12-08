@@ -25,14 +25,13 @@ public class ShopRepositoryTest {
     private ItemRepository itemRepository;
 
     @Test
-    public void shopId_should_return_itemList(){
+    public void shopId_should_return_fullItemList(){
         //Given
         String shopId="123e4567-e89b-42d3-a456-55664244333";
         Shop shop= shopRepository.findById(shopId);
         //When
-        List<Item> itemList=shop.getListItem();
+        List<Item> listItem=shop.getListItem();
         //Then
-        assertThat(itemList).size().isEqualTo(3);
+        assertThat(listItem).size().isEqualTo(3);
     }
-
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="SHOP")
 public class Shop extends AbstractBaseEntity {
 
     private String name;
