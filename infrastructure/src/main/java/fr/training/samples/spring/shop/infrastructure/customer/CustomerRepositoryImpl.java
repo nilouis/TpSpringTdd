@@ -1,4 +1,4 @@
-package fr.training.samples.spring.shop.insfrastructure.customer;
+package fr.training.samples.spring.shop.infrastructure.customer;
 
 import org.springframework.stereotype.Repository;
 
@@ -30,7 +30,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	 */
 	@Override
 	public Customer findById(final String id) {
-		return customerDataJpaRepository.findById(id).orElseThrow(() -> new NotFoundException());
+		return customerDataJpaRepository.findById(id)
+				.orElseThrow(() -> new NotFoundException("Customer " + id + " Not found"));
 	}
 
 	/*
