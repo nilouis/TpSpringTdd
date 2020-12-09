@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,12 +19,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import fr.training.samples.spring.shop.application.item.ItemService;
 import fr.training.samples.spring.shop.domain.item.Item;
 import fr.training.samples.spring.shop.exposition.common.ErrorModel;
+import io.micrometer.core.annotation.Timed;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("/api")
+@Validated
 public class ItemResource {
 
 	private static final Logger logger = LoggerFactory.getLogger(ItemResource.class);
@@ -47,6 +50,7 @@ public class ItemResource {
 			@ApiResponse(code = 404, message = "Not Found ", response = ErrorModel.class),
 			@ApiResponse(code = 500, message = "Internal Server Error", response = ErrorModel.class) })
 	@GetMapping(value = "/items", produces = { "application/json" })
+	@Timed
 	public List<ItemDto> getAllItemsUsingGet() {
 
 		final List<Item> items = itemService.getAllItems();
@@ -61,6 +65,7 @@ public class ItemResource {
 			@ApiResponse(code = 404, message = "Not Found ", response = ErrorModel.class),
 			@ApiResponse(code = 500, message = "Internal Server Error", response = ErrorModel.class) })
 	@PostMapping(value = "/items", produces = { "application/json" })
+	@Timed
 	public ResponseEntity<URI> addItemUsingPost(@Valid @RequestBody final ItemLightDto itemDto) {
 
 		final Item item = itemMapper.mapToEntity(itemDto);

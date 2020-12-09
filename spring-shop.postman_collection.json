@@ -194,6 +194,7 @@
 				"description": "This operation allow to retrieve all customer orders"
 			},
 			"response": []
+<<<<<<< HEAD
 		},
 		{
 			"name": "authenticate",
@@ -206,6 +207,8 @@
 				"description": "authenticate to get JWT"
 			},
 			"response": []
+=======
+>>>>>>> c3545d8b4c28b0ab29188cb53371d88feb4e3be4
 		}
 	],
 	"protocolProfileBehavior": {}
